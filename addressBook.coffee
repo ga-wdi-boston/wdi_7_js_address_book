@@ -56,3 +56,8 @@ AddressBook =
 # The name variable will return the string inputted via the command line.
 # For example, `node addressBook.js 'Andrew'` will return the string 'Andrew'
 name = process.argv.slice(2, 3)[0]
+
+getAddresses = (name) ->
+    console.log person for person in AddressBook.people when name in person.name.split(" ")
+
+getAddresses(name)
