@@ -5,6 +5,9 @@ Bonus points for writing tests to ensure that your solution works!
 ###
 
 AddressBook =
+    getAddresses: (name) ->
+        addresses = (person for person in @people when name in person.name.split(" "))
+
     people: [
         {
             name: "John Gomez",
@@ -57,7 +60,4 @@ AddressBook =
 # For example, `node addressBook.js 'Andrew'` will return the string 'Andrew'
 name = process.argv.slice(2, 3)[0]
 
-getAddresses = (name) ->
-    console.log person for person in AddressBook.people when name in person.name.split(" ")
-
-getAddresses(name)
+console.log AddressBook.getAddresses(name)

@@ -7,10 +7,25 @@ Bonus points for writing tests to ensure that your solution works!
  */
 
 (function() {
-  var AddressBook, getAddresses, name,
+  var AddressBook, name,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   AddressBook = {
+    getAddresses: function(name) {
+      var addresses, person;
+      return addresses = (function() {
+        var _i, _len, _ref, _results;
+        _ref = this.people;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          person = _ref[_i];
+          if (__indexOf.call(person.name.split(" "), name) >= 0) {
+            _results.push(person);
+          }
+        }
+        return _results;
+      }).call(this);
+    },
     people: [
       {
         name: "John Gomez",
@@ -54,19 +69,6 @@ Bonus points for writing tests to ensure that your solution works!
 
   name = process.argv.slice(2, 3)[0];
 
-  getAddresses = function(name) {
-    var person, _i, _len, _ref, _results;
-    _ref = AddressBook.people;
-    _results = [];
-    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-      person = _ref[_i];
-      if (__indexOf.call(person.name.split(" "), name) >= 0) {
-        _results.push(console.log(person));
-      }
-    }
-    return _results;
-  };
-
-  getAddresses(name);
+  console.log(AddressBook.getAddresses(name));
 
 }).call(this);
