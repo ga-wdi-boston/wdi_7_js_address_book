@@ -5,4 +5,4 @@ Address Book
 
 - Install coffeescript using the following command `npm install -g coffee-script`
 - Look through the online docs for the basics of how coffeescript works
-- Complete the address book exercise based on the comments in addressBook.coffee
+- Complete the exercise based on the comments in addressBook.coffee
