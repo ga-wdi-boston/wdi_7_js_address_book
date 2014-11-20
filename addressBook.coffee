@@ -6,7 +6,8 @@ Bonus points for writing tests to ensure that your solution works!
 
 AddressBook =
     getAddresses: (name) ->
-        addresses = (person for person in @people when name in person.name.split(" "))
+        @people.filter (person) ->
+            person.name.indexOf(name) > -1
 
     people: [
         {

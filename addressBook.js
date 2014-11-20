@@ -7,24 +7,13 @@ Bonus points for writing tests to ensure that your solution works!
  */
 
 (function() {
-  var AddressBook, name,
-    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+  var AddressBook, name;
 
   AddressBook = {
     getAddresses: function(name) {
-      var addresses, person;
-      return addresses = (function() {
-        var _i, _len, _ref, _results;
-        _ref = this.people;
-        _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          person = _ref[_i];
-          if (__indexOf.call(person.name.split(" "), name) >= 0) {
-            _results.push(person);
-          }
-        }
-        return _results;
-      }).call(this);
+      return this.people.filter(function(person) {
+        return person.name.indexOf(name) > -1;
+      });
     },
     people: [
       {
