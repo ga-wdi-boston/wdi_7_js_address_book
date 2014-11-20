@@ -5,6 +5,10 @@ Bonus points for writing tests to ensure that your solution works!
 ###
 
 AddressBook =
+    searchByName: (name) ->
+        AddressBook.people.filter (item) ->
+            item.name.indexOf(name) > -1
+
     people: [
         {
             name: "John Gomez",
@@ -56,3 +60,5 @@ AddressBook =
 # The name variable will return the string inputted via the command line.
 # For example, `node addressBook.js 'Andrew'` will return the string 'Andrew'
 name = process.argv.slice(2, 3)[0]
+
+console.log AddressBook.searchByName name
